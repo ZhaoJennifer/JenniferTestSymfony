@@ -51,7 +51,7 @@ class PersonController extends Controller
 
     $liste = $query->getResult();
 
-    return $this->render('/showAllUsers.html.twig', array('liste' => $liste));
+    return $this->render('/showAllUsers.html.twig', array('liste' => array_reverse($liste)));
   }
 
 }

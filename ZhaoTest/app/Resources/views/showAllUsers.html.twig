@@ -1,7 +1,12 @@
 {% extends 'base.html.twig'%}
 {% block body %}
 <h3>Les prénoms sont: </h3>
+{% set myArray = [] %}
 {% for user in liste %}
-  <ul>{{ user.prenom }}</ul>
+  {% set myArray = myArray|merge([user.prenom|reverse]) %}
+{% endfor %}
+
+{% for us in myArray|sort %}
+  <ul>{{ us|reverse }}</ul>
 {% endfor %}
 {% endblock %}
